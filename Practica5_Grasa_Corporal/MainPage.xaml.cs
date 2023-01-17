@@ -1,4 +1,6 @@
-﻿namespace Practica5_Grasa_Corporal;
+﻿using Practica5_Grasa_Corporal.MVVM.ViewModels;
+
+namespace Practica5_Grasa_Corporal;
 
 public partial class MainPage : ContentPage
 {
@@ -7,6 +9,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+		BindingContext = new IMCViewModel();
 	}
 
 }

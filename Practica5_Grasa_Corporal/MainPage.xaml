@@ -8,57 +8,63 @@
         <VerticalStackLayout>
             <!--Primer linear-->
             <Frame>
-                <gauge:SfLinearGauge
-        Margin= "0,15,0,0"
-        Interval= "50"
-        Maximum= "250"
-        Minimum= "25">
-                    <gauge:SfLinearGauge.MarkerPointers>
-                        <gauge:LinearContentPointer
-            x:Name="HeightPointer"
-            IsInteractive="True"
-            Position="Cross"
-            Value="{Binding IMC.Altura}">
-                            <gauge:LinearContentPointer.Content>
-                                <Grid HeightRequest="25" WidthRequest="50">
-                                    <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
-                                    <Label
-                        HorizontalOptions="Center"
-                        Text="{Binding Source={x:Reference HeightPointer}, Path=Value,StringFormat='{0:0}'}"
-                        TextColor="White"
-                        VerticalOptions="Center" />
-                                </Grid>
-                            </gauge:LinearContentPointer.Content>
-                        </gauge:LinearContentPointer>
-                    </gauge:SfLinearGauge.MarkerPointers>
-                </gauge:SfLinearGauge>
+                <VerticalStackLayout>
+                    <Label Text="Altura (cm)" HorizontalOptions="Center" FontSize="Medium"/>
+                    <gauge:SfLinearGauge
+                        Margin= "0,15,0,0"
+                        Interval= "50"
+                        Maximum= "250"
+                        Minimum= "25">
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer
+                                x:Name="HeightPointer"
+                                IsInteractive="True"
+                                Position="Cross"
+                                Value="{Binding IMC.Altura}">
+                                <gauge:LinearContentPointer.Content>
+                                    <Grid HeightRequest="25" WidthRequest="50">
+                                        <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Text="{Binding Source={x:Reference HeightPointer}, Path=Value,StringFormat='{0:0}'}"
+                                            TextColor="White"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
             </Frame>
             <!--Segundo linear-->
             <Frame>
-                <gauge:SfLinearGauge
-        Margin= "0,15,0,0"
-        Interval= "50"
-        Maximum= "250"
-        Minimum= "25">
-                    <gauge:SfLinearGauge.MarkerPointers>
-                        <gauge:LinearContentPointer
-            x:Name="HeightPointer2"
-            IsInteractive="True"
-            Position="Cross"
-            Value="{Binding IMC.Altura}">
-                            <gauge:LinearContentPointer.Content>
-                                <Grid HeightRequest="25" WidthRequest="50">
-                                    <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
-                                    <Label
-                        HorizontalOptions="Center"
-                        Text="{Binding Source={x:Reference HeightPointer}, Path=Value,StringFormat='{0:0}'}"
-                        TextColor="White"
-                        VerticalOptions="Center" />
-                                </Grid>
-                            </gauge:LinearContentPointer.Content>
-                        </gauge:LinearContentPointer>
-                    </gauge:SfLinearGauge.MarkerPointers>
-                </gauge:SfLinearGauge>
+                <VerticalStackLayout>
+                    <Label Text="Peso (Kg)" HorizontalOptions="Center" FontSize="Medium"/>
+                    <gauge:SfLinearGauge
+                        Margin= "0,15,0,0"
+                        Interval= "50"
+                        Maximum= "150"
+                        Minimum= "25">
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer
+                                x:Name="PesoPuntero"
+                                IsInteractive="True"
+                                Position="Cross"
+                                Value="{Binding IMC.Peso}">
+                                <gauge:LinearContentPointer.Content>
+                                    <Grid HeightRequest="25" WidthRequest="50">
+                                        <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Text="{Binding Source={x:Reference PesoPuntero}, Path=Value,StringFormat='{0:0}'}"
+                                            TextColor="White"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
             </Frame>
             <!--Báscula-->
             <Frame>
@@ -78,7 +84,7 @@
                                   Fill="red" />
                             </gauge:RadialAxis.Ranges>
                             <gauge:RadialAxis.Pointers>
-                                <gauge:NeedlePointer Value="0" />
+                                <gauge:NeedlePointer Value="{Binding IMC.ImcCalc}" />
                             </gauge:RadialAxis.Pointers>
                             <gauge:RadialAxis.Annotations>
                                 <gauge:GaugeAnnotation x:Name="annotation"
@@ -86,7 +92,7 @@
                                        DirectionValue="90"
                                        PositionFactor="0.5">
                                     <gauge:GaugeAnnotation.Content>
-                                        <Label Text="0"
+                                        <Label Text="{Binding IMC.ImcCalc}"
                                    FontSize="25"
                                    FontAttributes="Bold" 
                                        TextColor="Black"/>
@@ -99,5 +105,6 @@
             </Frame>
         </VerticalStackLayout>
     </ScrollView>
-    
+
+
 </ContentPage>
