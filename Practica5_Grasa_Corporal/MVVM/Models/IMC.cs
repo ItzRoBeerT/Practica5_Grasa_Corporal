@@ -25,7 +25,9 @@ namespace Practica5_Grasa_Corporal.MVVM.Models
 
         public int CalcularIMC()
         {
-            int result = (int)(Peso / Math.Pow(Altura / 100, 2));
+            Double metros = (Altura/100.0);
+            Console.Write(metros);
+            int result = (int)(Peso /(Math.Pow(metros, 2)));
             return result;
         }
     }
